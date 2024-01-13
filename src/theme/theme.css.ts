@@ -1,13 +1,15 @@
-import { createTheme } from "@vanilla-extract/css";
+import { createTheme, createVar } from "@vanilla-extract/css";
 
 export const [themeClass, vars] = createTheme({
-  color: {
-    primary: "#27272a",
+  colors: {
+    primary: "blue",
+    text: "white",
   },
 });
 
 export const otherThemeClass = createTheme(vars, {
-  color: {
+  colors: {
     primary: "red",
+    text: "white",
   },
 });
