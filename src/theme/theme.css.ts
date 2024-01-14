@@ -1,15 +1,14 @@
-import { createTheme, createVar } from "@vanilla-extract/css";
+import {
+  createTheme,
+  createThemeContract,
+  createVar,
+} from "@vanilla-extract/css";
+import { LIGHT_COLOR_TOKEN } from "./theme/light.css";
+import { DARK_COLOR_TOKEN } from "./theme/dark.css";
+import { fontSize } from "./token/font-size";
 
-export const [themeClass, vars] = createTheme({
-  colors: {
-    primary: "blue",
-    text: "white",
-  },
-});
+export const [baseTokenClass, baseToken] = createTheme({ fontSize });
+export const colorToken = createThemeContract(DARK_COLOR_TOKEN);
 
-export const otherThemeClass = createTheme(vars, {
-  colors: {
-    primary: "red",
-    text: "white",
-  },
-});
+export const darkThemeClass = createTheme(colorToken, DARK_COLOR_TOKEN);
+export const lightThemeClass = createTheme(colorToken, LIGHT_COLOR_TOKEN);
