@@ -1,37 +1,37 @@
 export const fontSize = {
-  d1: {
+  "96": {
     fontSize: "96px",
     lineHeight: "128px",
   },
-  d2: {
+  "80": {
     fontSize: "80px",
     lineHeight: "104px",
   },
-  h1: {
+  "40": {
     fontSize: "40px",
     lineHeight: "56px",
   },
-  h2: {
+  "30": {
     fontSize: "30px",
     lineHeight: "40px",
   },
-  h3: {
+  "24": {
     fontSize: "24px",
     lineHeight: "32px",
   },
-  h4: {
+  "18": {
     fontSize: "18px",
     lineHeight: "24px",
   },
-  h5: {
+  "14": {
     fontSize: "14px",
     lineHeight: "20px",
   },
-  h6: {
+  "12": {
     fontSize: "12px",
     lineHeight: "16px",
   },
-  h7: {
+  "8": {
     fontSize: "8px",
     lineHeight: "12px",
   },

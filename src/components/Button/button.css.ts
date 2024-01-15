@@ -7,7 +7,7 @@ export const buttonVariants = recipe({
     backgroundColor: colorToken["background.primary"],
     color: colorToken["text"],
     borderRadius: "0.5rem",
-    ...baseToken.fontSize.h5,
+    ...baseToken.fontSize["12"],
   },
   variants: {
     variant: {
