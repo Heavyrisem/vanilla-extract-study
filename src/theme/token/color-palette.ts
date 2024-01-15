@@ -284,4 +284,4 @@ export const COLOR_PALETTE = {
   rose800: "#9f1239",
   rose900: "#881337",
   rose950: "#4c0519",
-} as const;
+};

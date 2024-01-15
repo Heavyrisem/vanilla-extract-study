@@ -14,7 +14,7 @@ export const buttonVariants = recipe({
       outlined: {
         backgroundColor: "transparent",
         border: `2px solid ${colorToken["background.primary"]}`,
-        color: colorToken["background.primary"],
+        color: colorToken["text.button.inverse"],
       },
       contained: {
         backgroundColor: colorToken["background.primary"],

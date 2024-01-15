@@ -2,12 +2,12 @@ import { COLOR_PALETTE } from "../token/color-palette";
 
 export const DARK_COLOR_TOKEN = {
   // background
-  "background.primary": COLOR_PALETTE.primary[5],
-  "background.netural": COLOR_PALETTE.neutral[5],
+  "background.primary": COLOR_PALETTE.zinc500,
+  "background.netural": COLOR_PALETTE.zinc700,
   // border
-  "border.primary": COLOR_PALETTE.primary[5],
-  "border.netural": COLOR_PALETTE.neutral[5],
+  "border.primary": COLOR_PALETTE.zinc500,
+  "border.netural": COLOR_PALETTE.zinc700,
   // text
-  text: COLOR_PALETTE.shades.white,
-  "text.inverse": COLOR_PALETTE.shades.black,
+  text: "#ffffff",
+  "text.button.inverse": COLOR_PALETTE.zinc800,
 };
