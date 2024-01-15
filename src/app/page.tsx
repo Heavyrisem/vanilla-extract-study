@@ -12,17 +12,23 @@ import clsx from "clsx";
 import { Box } from "@/components/Box";
 
 export default function Home() {
-  const [theme, setTheme] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <main
-      className={clsx(baseTokenClass, theme ? lightThemeClass : darkThemeClass)}
-      onClick={() => setTheme(!theme)}
+      className={clsx(
+        baseTokenClass,
+        darkMode ? darkThemeClass : lightThemeClass
+      )}
     >
-      <Box>light: {String(theme)}</Box>
-      <Box padding="8">
-        <Button variant="outlined">Button</Button>
-        <Button variant="contained">Button</Button>
+      <Box>light: {String(darkMode)}</Box>
+      <Box padding="2" display="flex" gap="2">
+        <Button variant="outlined" onClick={() => setDarkMode(!darkMode)}>
+          Button
+        </Button>
+        <Button variant="contained" onClick={() => setDarkMode(!darkMode)}>
+          Button
+        </Button>
       </Box>
     </main>
   );

@@ -5,9 +5,10 @@ export const DARK_COLOR_TOKEN = {
   "background.primary": COLOR_PALETTE.zinc500,
   "background.netural": COLOR_PALETTE.zinc700,
   // border
-  "border.primary": COLOR_PALETTE.zinc500,
-  "border.netural": COLOR_PALETTE.zinc700,
+  "border.primary": COLOR_PALETTE.zinc700,
+  "border.netural": COLOR_PALETTE.zinc500,
   // text
-  text: "#ffffff",
-  "text.button.inverse": COLOR_PALETTE.zinc800,
+  text: COLOR_PALETTE.zinc800,
+  "text.button.contained": "#ffffff",
+  "text.button.outlined": COLOR_PALETTE.zinc800,
 };

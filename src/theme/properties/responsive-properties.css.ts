@@ -26,6 +26,7 @@ export const responseProperties = defineProperties({
       "space-between",
     ],
     alignItems: ["stretch", "flex-start", "center", "flex-end"],
+    gap: spacing,
     paddingTop: spacing,
     paddingBottom: spacing,
     paddingLeft: spacing,
