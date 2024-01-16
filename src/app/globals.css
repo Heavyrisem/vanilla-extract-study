@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
@@ -30,7 +30,7 @@ body {
    v2.0 | 20110126
    License: none (public domain)
 */
-@layer base {
+@layer {
   html,
   body,
   div,

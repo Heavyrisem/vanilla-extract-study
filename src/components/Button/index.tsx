@@ -9,11 +9,14 @@ type ButtonProps = RecipeVariants<typeof buttonVariants> &
 export const Button: React.FC<ButtonProps> = ({
   className,
   variant,
+  disabled,
   ...rest
 }) => {
   return (
     <button
-      className={clsx(buttonVariants({ variant }), className)}
+      className={clsx(buttonVariants({ variant, disabled }), className)}
+      disabled={disabled}
+      aria-disabled={disabled}
       {...rest}
     />
   );

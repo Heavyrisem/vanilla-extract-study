@@ -14,7 +14,7 @@ import { Text } from "@/components/Text";
 import "./global-style.css";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <body
@@ -23,14 +23,20 @@ export default function Home() {
         darkMode ? darkThemeClass : lightThemeClass
       )}
     >
-      <Box padding={{ md: "2", lg: "4" }}>
+      <Box>
         <Text fontSize="24">darkMode: {String(darkMode)}</Text>
       </Box>
-      <Box padding="2" display="flex" gap={{ hover: "4" }}>
+      <Box padding="2" display="flex" gap="4">
         <Button variant="outlined" onClick={() => setDarkMode(!darkMode)}>
           Button
         </Button>
         <Button variant="contained" onClick={() => setDarkMode(!darkMode)}>
+          Button
+        </Button>
+        <Button variant="outlined" disabled>
+          Button
+        </Button>
+        <Button variant="contained" disabled>
           Button
         </Button>
       </Box>
