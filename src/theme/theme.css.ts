@@ -6,8 +6,18 @@ import {
 import { LIGHT_COLOR_TOKEN } from "./theme/light.css";
 import { DARK_COLOR_TOKEN } from "./theme/dark.css";
 import { fontSize } from "./token/font-size";
+import { width } from "./token/width";
+import { height } from "./token/height";
+import { spacing } from "./token/spacing";
+import { radius } from "./token/radius";
 
-export const [baseTokenClass, baseToken] = createTheme({ fontSize });
+export const [baseTokenClass, baseToken] = createTheme({
+  fontSize,
+  width,
+  height,
+  spacing,
+  radius,
+});
 export const colorToken = createThemeContract(DARK_COLOR_TOKEN);
 
 export const darkThemeClass = createTheme(colorToken, DARK_COLOR_TOKEN);

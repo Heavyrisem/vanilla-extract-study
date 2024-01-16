@@ -10,19 +10,23 @@ import {
 import { useState } from "react";
 import clsx from "clsx";
 import { Box } from "@/components/Box";
+import { Text } from "@/components/Text";
+import "./global-style.css";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <main
+    <body
       className={clsx(
         baseTokenClass,
         darkMode ? darkThemeClass : lightThemeClass
       )}
     >
-      <Box>light: {String(darkMode)}</Box>
-      <Box padding="2" display="flex" gap="2">
+      <Box padding={{ md: "2", lg: "4" }}>
+        <Text fontSize="24">darkMode: {String(darkMode)}</Text>
+      </Box>
+      <Box padding="2" display="flex" gap={{ hover: "4" }}>
         <Button variant="outlined" onClick={() => setDarkMode(!darkMode)}>
           Button
         </Button>
@@ -30,6 +34,6 @@ export default function Home() {
           Button
         </Button>
       </Box>
-    </main>
+    </body>
   );
 }

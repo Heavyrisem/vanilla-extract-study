@@ -3,6 +3,7 @@ import { DARK_COLOR_TOKEN } from "./dark.css";
 
 export const LIGHT_COLOR_TOKEN: typeof DARK_COLOR_TOKEN = {
   // background
+  "background.surface": "#ffffff",
   "background.primary": COLOR_PALETTE.zinc700,
   "background.netural": COLOR_PALETTE.zinc500,
   // border
