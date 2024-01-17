@@ -1,0 +1,40 @@
+import { ReactPortal, ReactPortalProps } from "@/components/Portal";
+import React, { useEffect, useMemo, useRef } from "react";
+import { usePopoverContext } from "../context";
+import clsx from "clsx";
+import { popoverVariants } from "../popover.css";
+
+interface ContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+
+export const Content: React.FC<ContentProps> = ({ className, ...rest }) => {
+  const { open, handleClose, anchorEl } = usePopoverContext();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const { left, top } = useMemo(() => {
+    const pos = anchorEl?.getBoundingClientRect();
+
+    const yPos = (pos?.y ?? 0) + (pos?.height ?? 0);
+    return { left: `${pos?.x ?? 0}px`, top: `${yPos ?? 0}px` };
+  }, [anchorEl]);
+
+  useEffect(() => {
+    if (open) {
+      ref.current?.focus();
+    }
+  }, [open]);
+
+  return (
+    <ReactPortal wrapperId="react-popover-portal">
+      <div
+        ref={ref}
+        tabIndex={-1}
+        className={clsx(popoverVariants({ open }), className)}
+        onBlur={() => {
+          handleClose();
+        }}
+        style={{ left, top }}
+        {...rest}
+      />
+    </ReactPortal>
+  );
+};

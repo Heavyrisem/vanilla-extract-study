@@ -1,0 +1,61 @@
+import { baseToken, colorToken } from "@/theme/theme.css";
+import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
+
+export const checkboxIconVariants = recipe({
+  base: {
+    fill: colorToken.text,
+    width: baseToken.width["4"],
+    height: baseToken.height["4"],
+  },
+  variants: {
+    visible: {
+      false: {
+        visibility: "hidden",
+      },
+      true: {
+        visibility: "visible",
+      },
+    },
+  },
+});
+
+export const checkboxVariants = recipe({
+  base: {
+    display: "inline-flex",
+    boxSizing: "border-box",
+    padding: baseToken.spacing["0.5"],
+    appearance: "none",
+    width: baseToken.width.fit,
+    height: baseToken.height.fit,
+    backgroundColor: "transparent",
+    border: `2px solid ${colorToken["background.primary"]}`,
+    borderRadius: baseToken.radius.md,
+    cursor: "pointer",
+    ...baseToken.transition.colors,
+  },
+  variants: {
+    checked: {
+      false: {
+        selectors: {
+          "&:hover:not(:disabled)": {
+            backgroundColor: colorToken["background.netural"],
+          },
+        },
+      },
+      true: {
+        backgroundColor: colorToken["background.primary"],
+        [`& > .${checkboxIconVariants.classNames.base}`]: {
+          fill: colorToken["text.inverse"],
+        },
+      },
+    },
+    disabled: {
+      false: {},
+      true: {
+        opacity: 0.3,
+        cursor: "not-allowed",
+      },
+    },
+  },
+});

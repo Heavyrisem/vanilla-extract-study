@@ -11,6 +11,7 @@ export const DARK_COLOR_TOKEN = {
   "border.netural": COLOR_PALETTE.zinc600,
   // text
   text: "#ffffff",
+  "text.inverse": COLOR_PALETTE.zinc800,
   "text.button.contained": "#ffffff",
   "text.button.outlined": "#ffffff",
 };
