@@ -14,6 +14,7 @@ import { Text } from "@/components/Text";
 import "./global-style.css";
 import { Checkbox } from "@/components/Checkbox";
 import { Popover } from "@/components/Popover";
+import { Select } from "@/components/Select";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -29,7 +30,7 @@ export default function Home() {
       <Box>
         <Text fontSize="24">darkMode: {String(darkMode)}</Text>
       </Box>
-      <Box padding="2" gap="4">
+      <Box padding="2" display="flex" gap="4">
         <Button variant="outlined" onClick={() => setDarkMode(!darkMode)}>
           Button
         </Button>
@@ -54,6 +55,20 @@ export default function Home() {
           </Popover.Trigger>
           <Popover.Content>1234</Popover.Content>
         </Popover.Root>
+
+        <Select.Root onSelect={console.log}>
+          <Select.Trigger>
+            <Button variant="contained">Select</Button>
+          </Select.Trigger>
+          <Select.Popover>
+            <Select.Item id="1" value="1">
+              1
+            </Select.Item>
+            <Select.Item id="2" value="2">
+              2
+            </Select.Item>
+          </Select.Popover>
+        </Select.Root>
       </Box>
     </body>
   );

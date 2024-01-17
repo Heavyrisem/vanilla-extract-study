@@ -13,6 +13,7 @@ export const LIGHT_COLOR_TOKEN: typeof DARK_COLOR_TOKEN = {
   // text
   text: COLOR_PALETTE.zinc800,
   "text.inverse": "#ffffff",
+  "text.popover": "#ffffff",
   "text.button.contained": "#ffffff",
   "text.button.outlined": COLOR_PALETTE.zinc800,
 };

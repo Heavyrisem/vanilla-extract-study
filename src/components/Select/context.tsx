@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 
 export interface SelectItem {
   id: string;
-  label: string;
+  label: React.ReactNode;
   value: string;
 }
 
@@ -92,4 +92,12 @@ export const SelectContextProvider: React.FC<SelectContextProviderProps> = ({
       {children}
     </SelectContext.Provider>
   );
+};
+
+export const useSelectContext = () => {
+  const context = React.useContext(SelectContext);
+  if (context === undefined) {
+    throw new Error("useSelectContext must be used within a SelectProvider");
+  }
+  return context;
 };

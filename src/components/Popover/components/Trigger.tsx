@@ -4,9 +4,13 @@ import React from "react";
 import clsx from "clsx";
 import { popoverTriggerStyle } from "../popover.css";
 
-interface TriggerProps extends React.HTMLAttributes<HTMLDivElement> {}
+export interface PopoverTriggerProps
+  extends React.HTMLAttributes<HTMLDivElement> {}
 
-export const Trigger: React.FC<TriggerProps> = ({ className, ...rest }) => {
+export const Trigger: React.FC<PopoverTriggerProps> = ({
+  className,
+  ...rest
+}) => {
   const { setAnchorEl, handleOpen } = usePopoverContext();
 
   return (

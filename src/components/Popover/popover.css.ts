@@ -9,10 +9,10 @@ export const popoverTriggerStyle = style({
 export const popoverVariants = recipe({
   base: {
     position: "absolute",
-    padding: baseToken.spacing["1.5"],
     backgroundColor: colorToken["background.primary"],
     borderRadius: baseToken.radius.sm,
     marginTop: baseToken.spacing[1],
+    color: colorToken["text.popover"],
   },
   variants: {
     open: {
