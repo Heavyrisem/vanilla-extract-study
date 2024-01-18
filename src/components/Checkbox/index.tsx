@@ -1,7 +1,7 @@
 import { useControlled } from "@/hooks/useControlled";
 import clsx from "clsx";
 import { HiCheck } from "react-icons/hi";
-import { checkboxIconVariants, checkboxVariants } from "./checkbox.css";
+import { checkboxIconStyle, checkboxVariants } from "./checkbox.css";
 import { RecipeVariants } from "@vanilla-extract/recipes";
 import { useCallback } from "react";
 
@@ -30,12 +30,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <button
+      data-active={checked}
       className={clsx(checkboxVariants({ checked, disabled }), className)}
       onClick={handleClickCheckbox}
       disabled={disabled}
       {...rest}
     >
-      <HiCheck className={checkboxIconVariants({ visible: checked })} />
+      <HiCheck className={checkboxIconStyle} />
     </button>
   );
 };

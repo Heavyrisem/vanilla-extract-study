@@ -16,6 +16,7 @@ import { Checkbox } from "@/components/Checkbox";
 import { Popover } from "@/components/Popover";
 import { Select } from "@/components/Select";
 import { SelectItem } from "@/components/Select/context";
+import { Switch } from "@/components/Switch";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -35,23 +36,25 @@ export default function Home() {
         <Text fontSize="24">darkMode: {String(darkMode)}</Text>
       </Box>
       <Box padding="2" display="flex" gap="4">
-        <Button variant="outlined" onClick={() => setDarkMode(!darkMode)}>
-          Button
-        </Button>
-        <Button variant="contained" onClick={() => setDarkMode(!darkMode)}>
-          Button
-        </Button>
-        <Button variant="outlined" disabled>
-          Button
-        </Button>
-        <Button variant="contained" disabled>
-          Button
-        </Button>
+        <Box>
+          <Button variant="outlined" onClick={() => setDarkMode(!darkMode)}>
+            Button
+          </Button>
+          <Button variant="contained" onClick={() => setDarkMode(!darkMode)}>
+            Button
+          </Button>
+          <Button variant="outlined" disabled>
+            Button
+          </Button>
+          <Button variant="contained" disabled>
+            Button
+          </Button>
+        </Box>
         <Checkbox />
         <Checkbox disabled />
         <Checkbox checked disabled />
 
-        <Popover.Root anchorEl={anchorRef}>
+        <Popover.Root>
           <Popover.Trigger>
             <Button variant="contained" onClick={() => setOpen((o) => !o)}>
               Popover
@@ -81,6 +84,10 @@ export default function Home() {
             </Select.Item>
           </Select.Popover>
         </Select.Root>
+
+        <Switch size="sm" />
+        <Switch size="md" />
+        <Switch size="lg" />
       </Box>
     </body>
   );

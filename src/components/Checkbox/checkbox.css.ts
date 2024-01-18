@@ -2,24 +2,6 @@ import { baseToken, colorToken } from "@/theme/theme.css";
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-export const checkboxIconVariants = recipe({
-  base: {
-    fill: colorToken.text,
-    width: baseToken.width["4"],
-    height: baseToken.height["4"],
-  },
-  variants: {
-    visible: {
-      false: {
-        visibility: "hidden",
-      },
-      true: {
-        visibility: "visible",
-      },
-    },
-  },
-});
-
 export const checkboxVariants = recipe({
   base: {
     display: "inline-flex",
@@ -45,9 +27,6 @@ export const checkboxVariants = recipe({
       },
       true: {
         backgroundColor: colorToken["background.primary"],
-        [`& > .${checkboxIconVariants.classNames.base}`]: {
-          fill: colorToken["text.inverse"],
-        },
       },
     },
     disabled: {
@@ -56,6 +35,19 @@ export const checkboxVariants = recipe({
         opacity: 0.3,
         cursor: "not-allowed",
       },
+    },
+  },
+});
+
+export const checkboxIconStyle = style({
+  fill: colorToken.text,
+  width: baseToken.width["4"],
+  height: baseToken.height["4"],
+  visibility: "hidden",
+  selectors: {
+    [`.${checkboxVariants.classNames.variants.checked.true} &`]: {
+      fill: colorToken["text.inverse"],
+      visibility: "visible",
     },
   },
 });
