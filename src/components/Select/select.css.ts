@@ -34,9 +34,15 @@ export const selectItemVariants = recipe({
     ...baseToken.transition.colors,
   },
   variants: {
-    selected: {
+    disabled: {
       false: {},
-      true: {},
+      true: {
+        opacity: 0.3,
+        cursor: "not-allowed",
+        ":hover": {
+          backgroundColor: "transparent",
+        },
+      },
     },
   },
 });

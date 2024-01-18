@@ -7,7 +7,7 @@ import {
   darkThemeClass,
   lightThemeClass,
 } from "@/theme/theme.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import clsx from "clsx";
 import { Box } from "@/components/Box";
 import { Text } from "@/components/Text";
@@ -15,10 +15,14 @@ import "./global-style.css";
 import { Checkbox } from "@/components/Checkbox";
 import { Popover } from "@/components/Popover";
 import { Select } from "@/components/Select";
+import { SelectItem } from "@/components/Select/context";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState<SelectItem[]>([]);
+
+  const [anchorRef, setAnchorRef] = useState<HTMLElement | null>(null);
 
   return (
     <body
@@ -47,7 +51,7 @@ export default function Home() {
         <Checkbox disabled />
         <Checkbox checked disabled />
 
-        <Popover.Root>
+        <Popover.Root anchorEl={anchorRef}>
           <Popover.Trigger>
             <Button variant="contained" onClick={() => setOpen((o) => !o)}>
               Popover
@@ -56,7 +60,12 @@ export default function Home() {
           <Popover.Content>1234</Popover.Content>
         </Popover.Root>
 
-        <Select.Root onSelect={console.log}>
+        <div ref={setAnchorRef}>Anchor</div>
+
+        <Select.Root
+          onSelect={setSelected}
+          selected={selected.map((i) => i.id)}
+        >
           <Select.Trigger>
             <Button variant="contained">Select</Button>
           </Select.Trigger>
@@ -66,6 +75,9 @@ export default function Home() {
             </Select.Item>
             <Select.Item id="2" value="2">
               2
+            </Select.Item>
+            <Select.Item id="3" value="3" disabled>
+              3
             </Select.Item>
           </Select.Popover>
         </Select.Root>

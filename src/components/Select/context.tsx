@@ -61,15 +61,26 @@ export const SelectContextProvider: React.FC<SelectContextProviderProps> = ({
   const handleSelectItem = useCallback<SelectContextState["handleSelectItem"]>(
     (item) => {
       let newState: typeof selected = [];
+
       if (multiSelect) {
         const index = selected.findIndex(
           (selectedItem) => selectedItem === item.id
         );
         if (index === -1) {
           newState = [...selected, item.id];
+        } else {
+          newState = [
+            ...selected.slice(0, index),
+            ...selected.slice(index + 1),
+          ];
         }
       } else {
-        newState = [item.id];
+        const index = selected.findIndex(
+          (selectedItem) => selectedItem === item.id
+        );
+        if (index === -1) {
+          newState = [item.id];
+        }
       }
 
       setSelected(newState);

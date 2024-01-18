@@ -1,5 +1,5 @@
 import { useControlled } from "@/hooks/useControlled";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface PopoverContextState {
   open: boolean;
@@ -21,13 +21,13 @@ export interface PopoverProviderProps
   extends Pick<Partial<PopoverContextState>, "open" | "anchorEl"> {
   children: React.ReactNode;
 }
-export const PopoverProvider = ({
+export const PopoverContextProvider = ({
   open: openProp,
   anchorEl: anchorElProp,
   children,
 }: PopoverProviderProps) => {
   const [open, setOpen] = useControlled(false, openProp);
-  const [anchorEl, setAnchorEl] = useControlled(null, anchorElProp);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const handleOpen = () => {
     setOpen(true);
@@ -38,7 +38,15 @@ export const PopoverProvider = ({
 
   return (
     <PopoverContext.Provider
-      value={{ open, handleOpen, handleClose, anchorEl, setAnchorEl }}
+      value={{
+        open,
+        handleOpen,
+        handleClose,
+        get anchorEl() {
+          return anchorElProp ?? anchorEl;
+        },
+        setAnchorEl,
+      }}
     >
       {children}
     </PopoverContext.Provider>

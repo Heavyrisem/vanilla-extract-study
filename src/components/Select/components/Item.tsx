@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { SelectItem, useSelectContext } from "../context";
 import { selectItemIconVariants, selectItemVariants } from "../select.css";
 import { RecipeVariants } from "@vanilla-extract/recipes";
-import { useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { HiCheck } from "react-icons/hi";
 
 export type SelectItemProps = Omit<SelectItem, "label"> &
@@ -12,6 +12,7 @@ export type SelectItemProps = Omit<SelectItem, "label"> &
 export const Item: React.FC<SelectItemProps> = ({
   id,
   value,
+  disabled,
   className,
   children,
   ...rest
@@ -21,6 +22,11 @@ export const Item: React.FC<SelectItemProps> = ({
 
   const isSelected = useMemo(() => selected.includes(id), [selected, id]);
 
+  const handleClickItem = useCallback(() => {
+    if (disabled) return;
+    handleSelectItem({ id, value, label: children });
+  }, [children, disabled, handleSelectItem, id, value]);
+
   useEffect(() => {
     addItem({ id, value, label: children });
     return () => removeItem(id);
@@ -28,8 +34,8 @@ export const Item: React.FC<SelectItemProps> = ({
 
   return (
     <div
-      className={clsx(selectItemVariants(), className)}
-      onClick={() => handleSelectItem({ id, value, label: children })}
+      className={clsx(selectItemVariants({ disabled }), className)}
+      onClick={handleClickItem}
       {...rest}
     >
       <span>{children}</span>

@@ -4,6 +4,7 @@ const {
 const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+};
 
 module.exports = withVanillaExtract(nextConfig);
