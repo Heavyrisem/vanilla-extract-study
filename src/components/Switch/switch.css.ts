@@ -7,7 +7,7 @@ import {
 } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-const sizeVars = createThemeContract({
+const switchVars = createThemeContract({
   icon: {
     width: null,
     height: null,
@@ -21,8 +21,8 @@ const sizeVars = createThemeContract({
 
 export const switchIconStyle = style({
   display: "inline-block",
-  width: sizeVars.icon.width,
-  height: sizeVars.icon.height,
+  width: switchVars.icon.width,
+  height: switchVars.icon.height,
   backgroundColor: "#ffffff",
   borderRadius: baseToken.radius.full,
   ...baseToken.transition.transform,
@@ -30,8 +30,8 @@ export const switchIconStyle = style({
 
 export const switchVariants = recipe({
   base: {
-    width: sizeVars.container.width,
-    height: sizeVars.container.height,
+    width: switchVars.container.width,
+    height: switchVars.container.height,
     display: "flex",
     alignItems: "center",
     paddingInline: baseToken.spacing[1],
@@ -43,7 +43,7 @@ export const switchVariants = recipe({
       true: {
         backgroundColor: colorToken["background.switch.enabled"],
         [`& > .${switchIconStyle}`]: {
-          transform: sizeVars.icon.transform,
+          transform: switchVars.icon.transform,
           //   transform: `translateX(130%)`,
         },
       },
@@ -53,7 +53,7 @@ export const switchVariants = recipe({
     },
     size: {
       sm: {
-        vars: assignVars(sizeVars, {
+        vars: assignVars(switchVars, {
           icon: {
             width: baseToken.width[4],
             height: baseToken.height[4],
@@ -66,7 +66,7 @@ export const switchVariants = recipe({
         }),
       },
       md: {
-        vars: assignVars(sizeVars, {
+        vars: assignVars(switchVars, {
           icon: {
             width: baseToken.width[6],
             height: baseToken.height[6],
@@ -79,7 +79,7 @@ export const switchVariants = recipe({
         }),
       },
       lg: {
-        vars: assignVars(sizeVars, {
+        vars: assignVars(switchVars, {
           icon: {
             width: baseToken.width[8],
             height: baseToken.height[8],

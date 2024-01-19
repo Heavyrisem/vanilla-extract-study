@@ -17,6 +17,7 @@ import { Popover } from "@/components/Popover";
 import { Select } from "@/components/Select";
 import { SelectItem } from "@/components/Select/context";
 import { Switch } from "@/components/Switch";
+import { Accordian } from "@/components/Accordian";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -88,6 +89,18 @@ export default function Home() {
         <Switch size="sm" />
         <Switch size="md" />
         <Switch size="lg" />
+      </Box>
+      <Box>
+        <Accordian.Root>
+          <Accordian.Item id="1">
+            <Accordian.Trigger>Trigger1</Accordian.Trigger>
+            <Accordian.Content>Content1</Accordian.Content>
+          </Accordian.Item>
+          <Accordian.Item id="2">
+            <Accordian.Trigger>Trigger2</Accordian.Trigger>
+            <Accordian.Content>Content2</Accordian.Content>
+          </Accordian.Item>
+        </Accordian.Root>
       </Box>
     </body>
   );
