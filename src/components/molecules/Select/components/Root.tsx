@@ -1,11 +1,8 @@
-import { Popover } from "@/components/Popover";
 import { SelectContextProvider, SelectContextProviderProps } from "../context";
-import { Button } from "@/components/Button";
-import {
-  PopoverContext,
-  PopoverProviderProps,
-} from "@/components/Popover/context";
+import { Button } from "@/components/atom/Button";
 import { useEffect } from "react";
+import { PopoverProviderProps } from "../../Popover/context";
+import { Popover } from "../../Popover";
 
 interface RootProps extends SelectContextProviderProps, PopoverProviderProps {}
 

@@ -1,7 +1,7 @@
-import { Popover as PopoverComponent } from "@/components/Popover";
-import { PopoverContentProps } from "@/components/Popover/components/Content";
 import clsx from "clsx";
 import { selectPopoverStyles } from "../select.css";
+import { PopoverContentProps } from "../../Popover/components/Content";
+import { Popover as PopoverComponent } from "../../Popover";
 
 interface SelectPopoverProps extends PopoverContentProps {}
 

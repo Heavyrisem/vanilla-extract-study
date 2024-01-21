@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/Button";
+import { Button } from "@/components/atom/Button";
 import {
   baseTokenClass,
   baseToken,
@@ -9,15 +9,15 @@ import {
 } from "@/theme/theme.css";
 import { useRef, useState } from "react";
 import clsx from "clsx";
-import { Box } from "@/components/Box";
-import { Text } from "@/components/Text";
+import { Box } from "@/components/atom/Box";
+import { Text } from "@/components/atom/Text";
 import "./global-style.css";
 import { Checkbox } from "@/components/Checkbox";
-import { Popover } from "@/components/Popover";
-import { Select } from "@/components/Select";
-import { SelectItem } from "@/components/Select/context";
-import { Switch } from "@/components/Switch";
-import { Accordian } from "@/components/Accordian";
+import { Switch } from "@/components/atom/Switch";
+import { Accordian } from "@/components/molecules/Accordian";
+import { Popover } from "@/components/molecules/Popover";
+import { Select } from "@/components/molecules/Select";
+import { SelectItem } from "@/components/molecules/Select/context";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
@@ -90,7 +90,7 @@ export default function Home() {
         <Switch size="md" />
         <Switch size="lg" />
       </Box>
-      <Box>
+      <Box padding="2" width="64">
         <Accordian.Root>
           <Accordian.Item id="1">
             <Accordian.Trigger>Trigger1</Accordian.Trigger>

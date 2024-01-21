@@ -1,5 +1,5 @@
-import { Popover } from "@/components/Popover";
-import { PopoverTriggerProps } from "@/components/Popover/components/Trigger";
+import { Popover } from "../../Popover";
+import { PopoverTriggerProps } from "../../Popover/components/Trigger";
 
 export interface SelectTriggerProps extends PopoverTriggerProps {}
 
